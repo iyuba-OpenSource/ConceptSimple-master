@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">新概念英语全四册</string>
+
+    <!--这里不能动，作为文件author数据-->
+    <string name="authorities">com.iyuba.concept2</string>
+</resources>

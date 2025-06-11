@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="item"
+            type="com.suzhou.concept.bean.EvaluationSentenceItem" />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:paddingStart="@dimen/short_interval"
+                android:textColor="@color/white"
+                android:background="@drawable/triangle"
+                android:text="@{String.valueOf(item.idIndex)}"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15sp"
+                android:id="@+id/sentence_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@{item.sentence_cn}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:visibility="@{item.showOperate? View.VISIBLE : View.GONE}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.suzhou.concept.utils.view.ControlVideoProgressView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/control_progress"/>
+                <RelativeLayout
+                    judgeEvaluationLayout="@{item.success}"
+                    android:layout_margin="@dimen/short_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/mike"
+                        android:layout_width="@dimen/evaluation_rang"
+                        android:layout_height="@dimen/evaluation_rang"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/standard_interval"
+                        android:layout_marginEnd="@dimen/standard_interval"
+                        android:background="@drawable/mike_grey"
+                        android:contentDescription="@string/todo" />
+
+                    <com.suzhou.concept.utils.view.RoundProgressBar
+                        android:id="@+id/control_self"
+                        style="@style/fine_listen_img_style"
+                        android:layout_width="@dimen/evaluation_rang"
+                        android:layout_marginTop="@dimen/short_interval"
+                        android:layout_marginEnd="@dimen/short_interval"
+                        android:layout_marginBottom="@dimen/short_interval"
+                        android:layout_toEndOf="@id/mike"
+                        android:background="@drawable/play_evaluation_old"
+                        android:contentDescription="@string/todo"
+                        android:gravity="center"
+                        android:visibility="@{item.success ? View.VISIBLE : View.GONE}"
+                        app:newCircleColor="#fff"
+                        app:newCircleProgressColor="@color/round_progress"
+                        app:newCircleWidth="2dp" />
+
+                    <TextView
+                        android:layout_width="@dimen/evaluation_rang"
+                        android:layout_height="@dimen/evaluation_rang"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/standard_interval"
+                        android:layout_marginEnd="@dimen/standard_interval"
+                        android:layout_toEndOf="@id/control_self"
+                        android:background="@drawable/round_border"
+                        android:gravity="center"
+                        android:text="@{item.fraction}"
+                        android:visibility="@{item.success ? View.VISIBLE : View.GONE}" />
+                </RelativeLayout>
+                <ImageView
+                    android:visibility="@{item.success ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/release_item"
+                    android:src="@drawable/release"
+                    android:layout_width="@dimen/evaluation_rang"
+                    android:layout_height="@dimen/evaluation_rang"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:visibility="@{item.success ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/correct_sound"
+                    android:textColor="@color/theme"
+                    android:gravity="center"
+                    android:text="@string/correct_sound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,182 @@
+<resources>
+    <string name="app_name">新概念英语</string><!--小米-->
+<!--    <string name="app_name">新概念人工智能学外语</string>&lt;!&ndash;华为&ndash;&gt;-->
+
+
+    <string name="new_us">新概念英语全四册(美音)</string>
+    <string name="new_uk">新概念英语全四册(英音)</string>
+    <string name="new_young">新概念英语(青少版)</string>
+    <string name="todo">TODO</string>
+    <string name="introduction">简介</string>
+    <string name="introduction_text">新概念英语全4册，分为英式英语和美式英语，各4册内容，本书为 %1$s，\n\n当前的文章为:\n\n%2$s</string>
+    <string name="fine_listen">精听</string>
+    <string name="setting">设置</string>
+    <string name="home">首页</string>
+    <string-array name="speed">
+        <item>倍速0.5x</item>
+        <item>倍速1.0x</item>
+        <item>倍速1.5x</item>
+        <item>倍速2.0x</item>
+    </string-array>
+    <string name="protocol_policy">用户协议与隐私政策</string>
+    <string name="protocol_policy_long_long">    感谢您对本公司的支持!本公司非常重视您的个人信息和隐私保护。
+                    为了更好地保障您的个人权益，在您使用我们的产品前，
+                    请务必审慎阅读《隐私政策》和《用户协议》内的所有条款，
+                    尤其是:\n
+                     1.我们对您的个人信息的收集/保存/使用/对外提供/保护等规则条款，以及您的用户权利等条款;\n
+                     2.约定我们的限制责任、免责条款;\n
+                     3.其他以颜色或加粗进行标识的重要条款。\n
+                    您点击“同意并继续”的行为即表示您已阅读完毕并同意以上协议的全部内容。
+                    如您同意以上协议内容，请点击“同意”，开始使用我们的产品和服务!;</string>
+    <string name="agree">同意</string>
+    <string name="not_agree">不同意退出应用</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="hint_username">请输入手机号/用户名/邮箱</string>
+    <string name="hint_username_input">请输入用户名</string>
+    <string name="auto_login">自动登录</string>
+    <string name="register">注册</string>
+    <string name="login">登录</string>
+    <string name="forgot_password">忘记密码?</string>
+    <string name="exit">退出登录</string>
+    <string name="verify">验证</string>
+    <string name="safekeeping">用户名是账号的唯一凭证，请妥善保管</string>
+    <string name="identity">请填写当前用户名密码，验证本人身份后才能修改用户名</string>
+    <string name="safe_verify">安全验证</string>
+    <string name="modify_username">修改用户名</string>
+    <string name="modify_modify_head">更改头像</string>
+    <string name="input_new_username">请输入新的用户名</string>
+    <string name="confirm_logout">确认注销</string>
+    <string name="logout">注销账号</string>
+    <!--这里被配置的文件处理了-->
+    <string name="authorities">xxxxx</string>
+    <string name="album_selection">相册选取</string>
+    <string name="photograph">拍照</string>
+    <string name="finish_choose">完成</string>
+    <string name="photo_text">上传一张靓照把 展现自己个性</string>
+    <string name="qq_key">mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3D</string>
+    <string name="input_phone">请输入你的手机号</string>
+    <string name="input_verify">输入验证码</string>
+    <string name="get_verify">获取验证码</string>
+    <string name="next">下一步</string>
+    <string name="web_register"><![CDATA[网页注册>>>]]></string>
+    <string name="read_agree">我已阅读并同意《使用协议》和《隐私政策》</string>
+    <string name="input_register">填入用户名和密码就可以注册</string>
+    <string name="pdf">pdf</string>
+    <string name="wonderful_sentence">例句</string>
+    <string name="vip_permission">VIP权限说明</string>
+    <string name="current_vip">本应用VIP</string>
+    <string name="activate_now">立即开通</string>
+    <string name="vip_describe">1.尊享原文播放调速特权\n2.尊享Pdf免费导出特权\n3.非VIP用户单词闯关体验闯1关, VIP会员无限单词闯关\n4.非VIP用户每篇文章句子评测仅限3句, VIP会员无限制评测\n\n本应用VIP仅限Android端当前应用使用</string>
+    <string name="all_vip_describe">1.尊享原文播放调速特权\n2.尊享Pdf免费导出特权\n3.非VIP用户单词闯关体验闯1关, VIP会员无限单词闯关\n4.非VIP用户每篇文章句子评测仅限3句, VIP会员无限制评测\n\n全站VIP可在全端(Android、iOS等)的当前应用使用</string>
+    <string name="gold_vip_describe">1.尊享全站会员特权\n2. 微课模块: VOA英语Lisa博士、Rachel美语发音；新概念英语全4册；四六级名师陈苏灵、李尚龙、石雷鹏、尹延、章敏等；托福、雅思、考研、学位英语、中职英语等名师讲解所有课程全部免费学习；\n\n黄金会员尊享爱语吧旗下全端全应用会员特权</string>
+    <string name="default_username">默认用户名为：</string>
+    <string name="default_password">默认密码为：</string>
+    <string-array name="vip_desc_array">
+        <item>本应用VIP\n(不含微课)</item>
+        <item>全站VIP\n(不含微课)</item>
+        <item>黄金VIP\n(全部微课)</item>
+    </string-array>
+    <string name="welcome">欢迎您：</string>
+    <string name="order">订单：</string>
+    <string name="pay_china_dollar">需要支付人民币：</string>
+    <string name="choose_pay_way">选择支付方式</string>
+    <string name="zfb_desc">支付宝支付\n推荐支付宝账号的用户使用</string>
+    <string name="verify_pay">确认支付</string>
+    <string name="send_good_book">送书啦！
+　　\n只要在应用商店中对本应用进行五星好评，并截图发给QQ：2111356785，即可获得3天的会员试用资格或赠送26册英文名著电子书哦。
+　　\n机会难得，不容错过，小伙伴们赶快行动吧!</string>
+    <string name="go_evaluate">去评价</string>
+    <string name="not_needed_yet">暂不需要</string>
+    <string name="break_through">闯关</string>
+    <string name="load">loading…</string>
+    <string name="start_break_through">开始闯关</string>
+    <string name="connect">依次点击左右两侧内容，给单词和释义连下线吧</string>
+    <string name="view_answer">查看答案</string>
+    <string name="submit">提交</string>
+    <string name="next_group">下一组</string>
+    <string name="synthesis">合成</string>
+    <string name="release">发布</string>
+    <string name="default_time">00:00</string>
+    <string name="mine_rank">我的</string>
+    <string name="sum_rank">总的</string>
+    <string-array name="teach_material_array_four">
+        <item>原文</item>
+        <item>评测</item>
+        <item>排行</item>
+        <item>知识</item>
+        <item>练习</item>
+        <item>阅读</item>
+    </string-array>
+    <string-array name="teach_material_array_young">
+        <item>原文</item>
+        <item>评测</item>
+        <item>排行</item>
+        <item>知识</item>
+        <item>阅读</item>
+    </string-array>
+    <string name="correct_sound">点击纠音</string>
+    <string name="pronunciation_analysis">发音解析</string>
+    <string name="seek_analysis">点击每个单词可查看发音解析</string>
+    <string name="correct_pronunciation">正确发音:</string>
+    <string name="your_pronunciation">你的发音:</string>
+    <string name="word_definition">单词释义:</string>
+    <string name="click_start">点击录音</string>
+    <string name="click_stop">点击结束</string>
+    <string name="listen_original">听原音</string>
+    <string name="read_word_again">再试着跟读一遍这个单词吧</string>
+    <string name="seek_lisa" translatable="false">查看发音专家Lisa博士对于发音的视频讲解</string>
+    <string name="is_playing">正在播放</string>
+    <string name="share">分享</string>
+
+    <string name="promotion" translatable="false">推广</string>
+    <string name="micro_lesson">微课</string>
+    <string name="hint">提示</string>
+    <string name="buy_currency_desc">（爱语币仅用于购买微课，可永久使用）</string>
+    <string name="buy_now">立即购买</string>
+    <string name="default_video_desc">Excuse me!</string>
+    <string name="small_video">视频</string>
+    <string name="generate_hint">下方已为您生成了默认的用户名和密码</string>
+    <string name="modify_hint">为了您的账号安全，建议修改用户名和密码后再提交</string>
+    <string name="username_hint">输入用户名(3–15个字符)</string>
+    <string name="password_hint">输入密码(6–15个英文、数字)</string>
+
+    <string name="listen">听</string>
+    <string name="delete">删除</string>
+    <string name="basic_dl_delete_confirmation">是否删除该资源?</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="sign_in">打卡</string>
+    <string name="sign_desc">爱语吧·出品</string>
+    <string name="sign">打卡</string>
+    <string name="sign_desc2">您在爱语吧坚持学习</string>
+    <string name="sign_desc3">天天学习，每日红包！</string>
+    <string name="skip">跳过</string>
+    <string name="close">关闭</string>
+    <string name="start_go_speaking">开始配音</string>
+    <string name="difficulty">难度:</string>
+    <string name="preview_dub">预览配音</string>
+    <string name="choose_speaking_sentence">请选择句子</string>
+    <string name="return_and_change">返回并修改</string>
+    <string name="release_and_share">发布并分享</string>
+    <string name="return_speaking_main">返回视频首页</string>
+    <string name="like_over_speaking">恭喜您完成配音！</string>
+    <string name="want_speaking">我要配音</string>
+    <string name="accuracy_percent">准确度：</string>
+    <string name="completed_percent">完整度：</string>
+    <string name="empty_data">暂无数据</string>
+    <string name="word">单词</string>
+    <string name="vip_center">会员中心</string>
+    <string-array name="exercise_array">
+        <item>选择题</item>
+        <item>关键句型</item>
+        <!--        <item>重点难点</item>-->
+    </string-array>
+    <string name="verify_result">查看成绩</string>
+    <string name="redo">重做</string>
+    <string name="your_answer">Your answer</string>
+    <string name="right_answer">Right answer</string>
+
+    <string name="unit">Unit</string>
+
+    <string name="comment">评论</string>
+</resources>

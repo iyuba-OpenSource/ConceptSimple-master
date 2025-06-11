@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.suzhou.concept">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- sdk version>18时不需要外部存储读写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".AppClient"
+        android:allowBackup="true"
+        android:allowNativeHeapPointerTagging="false"
+        android:icon="@mipmap/app_logo"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Concept"
+        tools:replace="android:networkSecurityConfig,android:allowBackup,android:theme"
+        tools:targetApi="n">
+        <activity
+            android:name=".activity.article.SeekAnalysisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.other.RankActivity"
+            android:exported="false" />
+        <activity android:name=".lil.test.TestAdSteamActivity"
+            android:excludeFromRecents="false"/>
+        <activity
+            android:name=".activity.speaking.MineDubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.speaking.OtherOneVideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.speaking.PreViewSpeakingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.speaking.DubSpeakingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.speaking.PlaySpeakingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.speaking.SelectYoungActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.speaking.SpeakingShowActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.other.SignActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".activity.user.FastRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.dollar.BuyCurrencyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.other.CollectVideoActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".service.PlayVideoService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.article.EvaluationInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.article.TeachMaterialActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.through.BreakThroughActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.through.ShowWordLevelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.other.SendBookActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".receiver.NetChangeReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="TODO"
+            tools:ignore="ExportedReceiver" />
+
+        <activity
+            android:name=".activity.other.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.word.ShowWordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.my.wordNote.wordDetail.WordShowNewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.word.StrangeWordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.RegisterInputActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.ModifyUserHeadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.ModifyUserNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.other.UseInstructionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.article.SelectBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.dollar.MemberCentreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.dollar.PayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.my.payNew.PayNewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.my.walletList.RewardMarkActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.study.word.train.WordTrainActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.my.wordNote.WordNoteActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.wordPass.list.WordListActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.wordPass.list.passShow.WordPassShowActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".lil.ui.my.rank.RankNewActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <!--<meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5d831637570df34afd00091d" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />-->
+
+        <receiver android:name=".receiver.StartTeachReceiver" />
+
+        <!--后台播放服务-->
+        <service
+            android:name=".lil.service.ListenPlayService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/authorities"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider> <!-- android:launchMode="singleTask" -->
+        <activity
+            android:name=".activity.other.WelcomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="um.5d831637570df34afd00091d" />
+            </intent-filter>
+        </activity>
+        <meta-data android:name="ScopedStorage" android:value="true" />
+
+        <!--处理qq分享时不返回app的问题-->
+        <activity
+            android:name="cn.sharesdk.tencent.qq.ReceiveActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1109948185" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

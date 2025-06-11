@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:icon="@drawable/home"
+        android:id="@+id/home"
+        android:title="@string/home"/>
+
+    <item
+        android:icon="@drawable/break_through"
+        android:id="@+id/break_through"
+        android:title="@string/word"/>
+
+    <item
+        android:icon="@drawable/small_video"
+        android:id="@+id/small_video"
+        android:title="@string/small_video"/>
+
+    <item
+        android:icon="@drawable/setting"
+        android:id="@+id/setting"
+        android:title="@string/mine_rank"/>
+
+</menu>

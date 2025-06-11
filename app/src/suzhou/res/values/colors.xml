@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--主体色-->
+    <color name="theme">#FCAC07</color><!--华为-->
+
+    <!--微课模块的主题颜色-->
+    <color name="imooc_main_color">@color/theme</color>
+
+    <!--微课模块标题栏的颜色-->
+    <color name="colorPrimary">@color/theme</color>
+    <!--微课模块的状态栏颜色-->
+    <color name="colorPrimaryDark">@color/theme</color>
+</resources>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.suzhou.concept.bean.ConceptItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_constraint_height">
+
+        <TextView
+            android:id="@+id/sentence_lesson"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/short_interval"
+            android:background="@drawable/lesson"
+            android:gravity="center"
+            android:text="@{item.lesson}"
+            android:textColor="#515151"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/youngPic"
+            loadUrl="@{item.youngChild.youngPic}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/short_interval"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <TextView
+            tools:text="Excuse me!"
+            android:id="@+id/sentence_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:text="@{item.title}"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sentence_title_cn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@{item.title_cn}"
+            android:textColor="#444444"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sentence_title"
+            tools:text="对不起" />
+        <!--        听力：闯关，评测，做题正确率-->
+        <com.suzhou.concept.utils.view.RoundProgressBar
+            android:id="@+id/sentence_listen_progress"
+            android:layout_width="@dimen/evaluation_rang"
+            android:layout_height="@dimen/evaluation_rang"
+            android:background="@drawable/ic_home_article"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline28"
+            app:layout_constraintEnd_toStartOf="@+id/guideline29"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sentence_title_cn"
+            app:newCircleColor="#D8D8D8"
+            app:newCircleProgressColor="@color/theme"
+            app:newCircleWidth="2dp" />
+
+        <TextView
+            android:id="@+id/listen_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{item.listenProgress+"%"}'
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline29"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline28"
+            tools:text="10%" />
+
+        <com.suzhou.concept.utils.view.RoundProgressBar
+            android:id="@+id/sentence_eval_progress"
+            android:layout_width="@dimen/evaluation_rang"
+            android:layout_height="@dimen/evaluation_rang"
+            android:background="@drawable/ic_home_eval"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toBottomOf="@id/guideline28"
+            app:layout_constraintEnd_toStartOf="@+id/guideline30"
+            app:layout_constraintStart_toStartOf="@+id/guideline29"
+            app:layout_constraintTop_toBottomOf="@id/sentence_title_cn"
+            app:newCircleColor="#D8D8D8"
+            app:newCircleProgressColor="@color/theme"
+            app:newCircleWidth="2dp" />
+
+        <!--android:text='@{item.evalSuccess+"/"+item.text_num}'-->
+        <TextView
+            android:id="@+id/eval_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline30"
+            app:layout_constraintStart_toStartOf="@+id/guideline29"
+            app:layout_constraintTop_toBottomOf="@id/guideline28"
+            tools:text="0/8" />
+
+        <com.suzhou.concept.utils.view.RoundProgressBar
+            android:id="@+id/sentence_word_progress"
+            android:layout_width="@dimen/evaluation_rang"
+            android:layout_height="@dimen/evaluation_rang"
+            android:background="@drawable/ic_home_word"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toBottomOf="@id/guideline28"
+            app:layout_constraintEnd_toStartOf="@+id/guideline31"
+            app:layout_constraintStart_toStartOf="@+id/guideline30"
+            app:layout_constraintTop_toBottomOf="@id/sentence_title_cn"
+            app:newCircleColor="#D8D8D8"
+            app:newCircleProgressColor="@color/theme"
+            app:newCircleWidth="2dp" />
+
+        <TextView
+            android:id="@+id/word_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{item.wordRight+"/"+item.wordNum}'
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline31"
+            app:layout_constraintStart_toStartOf="@+id/guideline30"
+            app:layout_constraintTop_toBottomOf="@id/guideline28"
+            tools:text="0/8" />
+
+
+        <com.suzhou.concept.utils.view.RoundProgressBar
+            android:id="@+id/sentence_exercise_progress"
+            android:layout_width="@dimen/evaluation_rang"
+            android:layout_height="@dimen/evaluation_rang"
+            android:background="@drawable/ic_home_test"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toTopOf="@+id/guideline28"
+            app:layout_constraintEnd_toStartOf="@+id/guideline32"
+            app:layout_constraintStart_toStartOf="@+id/guideline31"
+            app:layout_constraintTop_toBottomOf="@id/sentence_title_cn"
+            app:newCircleColor="#D8D8D8"
+            app:newCircleProgressColor="@color/theme"
+            app:newCircleWidth="2dp" />
+
+        <TextView
+            android:id="@+id/exercise_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{item.exerciseRight+"/"+item.choice_num}'
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline32"
+            app:layout_constraintStart_toStartOf="@+id/guideline31"
+            app:layout_constraintTop_toBottomOf="@id/guideline28"
+            tools:text="0/5" />
+
+        <TextView
+            android:id="@+id/mooc_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{item.evalSuccess+"/"+item.text_num}'
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline32"
+            app:layout_constraintTop_toBottomOf="@id/guideline28"
+            tools:text="0%" />
+
+        <com.suzhou.concept.utils.view.RoundProgressBar
+            android:id="@+id/sentence_mooc_progress"
+            android:layout_width="@dimen/evaluation_rang"
+            android:layout_height="@dimen/evaluation_rang"
+            android:background="@drawable/ic_home_micro_leature"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toTopOf="@id/guideline28"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline32"
+            app:layout_constraintTop_toBottomOf="@id/sentence_title_cn"
+            app:newCircleColor="#D8D8D8"
+            app:newCircleProgressColor="@color/theme"
+            app:newCircleWidth="2dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.13" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.26" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.39" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.52" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

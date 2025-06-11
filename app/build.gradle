@@ -1,0 +1,431 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.mob.sdk'
+    id 'kotlin-parcelize'
+
+    //腾讯多渠道打包
+    id 'com.tencent.vasdolly'
+}
+
+android {
+    //签名(一定注意打包的时候的签名，别用其他的签名啊，注意注意！！！！)
+    signingConfigs {
+        //小米-新概念英语suzhou的签名文件信息
+        release {
+            keyAlias 'key0'
+            keyPassword '123456'
+            storeFile file('../keystore.jks')
+            storePassword '123456'
+        }
+
+        //华为-新概念英语全四册concept2的签名文件
+        /*release {
+            keyAlias 'android.keystore'
+            keyPassword 'buaaiyuba'
+            storeFile file('../iyuba_android.keystore')
+            storePassword 'buaaiyuba'
+        }*/
+    }
+
+    //其他配置
+    compileSdk 33
+    defaultConfig {
+        minSdk 24
+        targetSdk 32
+
+        //设置日期为打包时候的日期
+        Date now = new Date()
+        buildConfigField("String", "COMPILE_DATETIME", "\"${now.format('yyyy-MM-dd HH:mm:ss')}\"")
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+//            abiFilters 'arm64-v8a' //魅族需要单独64位
+            // 指定要ndk需要兼容的架构(这样其他依赖包里mips,x86,armeabi,arm-v8之类的so会被过滤掉)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    //类型
+    flavorDimensions "app"
+    productFlavors {
+
+        //新概念英语suzhou-小米专用
+        suzhou {
+            applicationId "com.suzhou.concept"
+            versionCode 37
+            versionName "4.15.0427"
+            dimension "app"
+        }
+
+        //新概念英语全四册-华为专用
+//        concept2 {
+//            applicationId "com.iyuba.concept2"
+//            versionCode 90
+//            versionName "8.2.1201"
+//            dimension "app"
+//        }
+    }
+
+    //编译类型
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+//输出
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "${variant.flavorName}-${variant.versionName}-${variant.buildType.name}.apk"
+            outputFileName = fileName
+        }
+    }
+
+/**
+ * 引入库
+ */
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+//    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation("com.squareup.retrofit2:converter-simplexml:$retrofitVersion") {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+        exclude group: 'com.google.code.gson'
+    }
+
+    implementation "com.google.code.gson:gson:2.8.9"
+    def lifeVersion = "2.4.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifeVersion"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt'
+    implementation("io.coil-kt:coil:1.1.1")
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
+
+    /*implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'*/
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'id.zelory:compressor:3.0.1'
+    implementation 'com.google.zxing:core:3.3.0'
+
+    // 友盟统计SDK
+    implementation 'com.umeng.umsdk:common:9.4.7'// 必选
+    implementation 'com.umeng.umsdk:asms:1.4.1'// 必选
+    implementation 'com.umeng.umsdk:apm:1.5.2' // 错误分析升级为独立SDK，看crash数据请一定集成，可选
+    implementation 'com.umeng.umsdk:abtest:1.0.0'//使用U-App中ABTest能力，可选
+
+    //jetpack中page的分页
+    def paging_version = "3.1.1"
+    //noinspection GradleDependency
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    //noinspection GradleDependency
+    testImplementation "androidx.paging:paging-common:$paging_version"
+
+    //room数据库
+    def roomVersion = "2.4.2"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$roomVersion")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+    implementation files('libs/alipaysdk-noutdid-15.8.05.211018174351.aar')
+
+    //微课的依赖
+    implementation files('libs/subtitle-1.2.2.aar')
+    implementation files('libs/mvp-1.0.0.aar')
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation files('libs/adblocker-1.0.2.aar')
+    implementation files('libs/privacy-1.0.4.aar')
+    implementation files('libs/user-0.2.7.aar')
+    implementation files('libs/waitdialog-1.2.1.aar')
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation files('libs/commonvar-1.0.0.aar')
+    implementation files('libs/toolbox-1.1.0.aar')
+    implementation files('libs/mixed_converter-1.0.0.aar')
+    implementation files('libs/creator-1.0.0.aar')
+    implementation files('libs/dlex-1.0.4.aar')
+    implementation files('libs/player-1.2.8.aar')
+    implementation files('libs/share-0.1.3.aar')
+    implementation files('libs/resize-1.0.0.aar')
+    implementation files('libs/ijkplayer-java-0.8.8-modify.aar')
+    implementation files('libs/share-mob-0.1.3.aar')
+    implementation files('libs/player-exo-1.2.8-alpha01.aar')
+    implementation files('libs/player-extended-1.2.8.aar')
+
+    implementation "com.squareup.okhttp3:logging-interceptor:3.14.9"
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.4'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation "com.youth.banner:banner:1.4.10"
+
+    //谷歌的exoplayer
+    def exoVersion = '2.19.1'
+    implementation "com.google.android.exoplayer:exoplayer-core:${exoVersion}"
+    implementation "com.google.android.exoplayer:exoplayer-dash:${exoVersion}"
+    implementation "com.google.android.exoplayer:exoplayer-ui:${exoVersion}"
+
+
+//    implementation "com.github.hotchemi:permissionsdispatcher:3.0.1"
+    //微课的依赖
+    implementation files('libs/imagetextview-1.2.1.aar')
+    implementation files('libs/roundprogressbar-1.0.0.aar')
+    implementation files('libs/mse-0.2.7.aar')
+    implementation files('libs/progresswheel-1.0.1.aar')
+    implementation files('libs/textpage-1.2.1.aar')
+    implementation files('libs/mp3trans-0.2.0.aar')
+    implementation files('libs/basicfavor-1.2.8-alpha01.aar')
+    implementation files('libs/recycler-0.2.0.aar')
+    implementation files('libs/basicdl-1.2.3-alpha01.aar')
+    implementation files('libs/data-iyuba-0.2.0.aar')
+    implementation files('libs/vpager-0.1.0.aar')
+    implementation files('libs/ijkplayer-arm64-0.8.8-modify.aar')
+    implementation files('libs/ijkplayer-x86_64-0.8.8-modify.aar')
+    implementation files('libs/popmenu-0.2.2.aar')
+    implementation files('libs/parse-0.2.1.aar')
+
+    implementation 'com.github.AnthonyFermin:DropDownView:1.0.1'
+    implementation 'com.github.open-android:labelview:0.1.0'
+    implementation "com.daimajia.swipelayout:library:1.2.0@aar"
+    implementation("org.greenrobot:eventbus:3.3.1")
+    implementation "com.github.permissions-dispatcher:permissionsdispatcher:4.9.2"
+    kapt "com.github.permissions-dispatcher:permissionsdispatcher-processor:4.9.2"
+    implementation 'com.github.naman14:TAndroidLame:1.1'
+
+    implementation "com.google.android.exoplayer:exoplayer:${exoVersion}"
+
+    api 'com.weigan:loopView:0.1.2'
+    implementation "com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:1.0.0"
+    implementation files('libs/videocompressor-1.0.aar')
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+    //图片缩放框架
+    implementation 'com.bm.photoview:library:1.4.1'
+
+    implementation 'com.github.getActivity:XXPermissions:21.2'
+
+    /*******************************个人中心模块***************************/
+    implementation files('libs/personalhomelibrary-1.5.8.aar')
+    implementation files('libs/universitypicker-0.2.1.aar')
+//    implementation files('libs/iyubamovies-1.2.9.aar')
+    implementation files('libs/WheelPicker-1.0.0.aar')
+    implementation files('libs/Common-1.0.0.aar')
+
+    /*******************************新补充的内容**************************/
+    implementation('com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar')
+    implementation files('libs/commonres-1.2.0.aar')
+
+    /*******************************视频模块****************************/
+    implementation files('libs/headlinelibrary-1.7.4.aar')
+    implementation files('libs/headlinetalk-1.3.7.aar')
+    implementation files('libs/intelligence-1.3.3.aar')
+    implementation files('libs/exomedia-4.3.0-modify-exo2.19.1.aar')
+
+    /********************************微课模块***************************/
+    implementation files('libs/imooclib-1.6.5.aar')
+
+    /********************************数据库测试**************************/
+    //sqlitestudio链接测试
+    implementation files('libs/SQLiteStudioRemote.jar')
+
+    /********************************多渠道打包***************************/
+    //腾讯多渠道打包
+    implementation 'com.tencent.vasdolly:helper:3.0.6'
+
+    /***********************************oaid*********************************/
+    implementation files('libs/oaid_sdk_2.4.0.aar')
+
+    /********************************广告模块*****************************/
+    //有道广告sdk
+    implementation files('libs/youdaosdk_4.2.45.aar')
+    implementation files('libs/data-youdao-0.1.8.aar')
+    implementation files('libs/data-ydsdk-0.3.9.aar')
+    api "com.airbnb.android:lottie:5.2.0"
+
+    //爱语吧广告sdk
+    implementation files('libs/mediatom-0.3.9.aar')
+    implementation files('libs/ydsdk-0.3.9.aar')
+    implementation files('libs/s2s-0.3.9.aar')
+    implementation files('libs/sdk-0.3.9.aar')
+    implementation files('libs/mixnative-0.3.9.aar')
+
+    //爱语吧-倍孜
+    implementation files('libs/mediatom-adhub-adapt-0.3.9.aar')
+    implementation files('libs/beizi_ad_sdk_3.4.20.26.aar')
+    implementation files('libs/beizi_fusion_sdk_4.90.2.36.aar')
+
+    //爱语吧-百度
+    implementation files('libs/mediatom-bd-adapt-0.3.9-fix.aar')
+    implementation files('libs/Baidu_MobAds_SDK-release_v9.35.aar')
+
+    //爱语吧-头条
+    implementation files('libs/mediatom-tt-adapt-0.3.9-fix2.aar')
+    implementation files('libs/open_ad_sdk_6.0.1.4.aar')
+
+    //爱语吧-腾讯
+    implementation files('libs/mediatom-tx-adapt-0.3.9.aar')
+    implementation files('libs/GDTSDK.unionNormal.4.570.1440.aar')
+
+    //爱语吧-快手
+    implementation files('libs/mediatom-ks-adapt-0.3.9.aar')
+    implementation files('libs/kssdk-ad-3.3.63-publishRelease-085cdfe109.aar')
+
+    //爱语吧-科大讯飞
+    implementation files('libs/mediatom-iflytek-adapt-0.3.9.aar')
+    implementation files('libs/IFLY_AD_6.0.10.aar')
+
+    //爱语吧-瑞狮
+    implementation files('libs/mediatom-vlion-adapt-0.3.9.aar')
+    implementation "cn.vlion.inland:vlion-core-ec:5.20.26"
+
+    /*************************新版本的练习题***************************/
+    implementation project(':practise')
+}
+
+/**
+ * 配置mob相关内容-短信验证码、秒验、分享
+ */
+MobSDK {
+    /**********新概念英语suzhou的**********/
+    def mobKey="389f2cfa2acd5"//原来的：351c56226df5e
+    def mobSecret="ca7a24a01ffcdfb8ea977b4d8c8688f4"//原来的：53b70716ec4e24bc43daffd46354b73a
+
+    def qqKey="1109948185"
+    def qqSecret="VMdjOTdFOOkdAPMP"
+
+    def wxKey="wx33db84cd95e173c8"
+    def wxSecret="bf105d20036131adcf715c304331c6a8"
+
+    def sinaKey="817528096"
+    def sinaSecret="9a0e280cf407611b0b739a3561291bf1"
+
+    /**********新概念英语全四册concept2的**********/
+    /*def mobKey="387636ce5cf38"
+    def mobSecret="a51c6d507c607fb99787b44153789a76"
+
+    def qqKey="1109948185"
+    def qqSecret="VMdjOTdFOOkdAPMP"
+
+    def wxKey="wx6ce5ac6bcb03a302"
+    def wxSecret="6213e0e3589744e922ef8313c7f35c3e"
+
+    def sinaKey="817528096"
+    def sinaSecret="9a0e280cf407611b0b739a3561291bf1"*/
+
+    appKey mobKey
+    appSecret mobSecret
+
+    SMSSDK {}
+    SecVerify {}
+    ShareSDK {
+        devInfo {
+            Wechat {
+                appId wxKey
+                appSecret wxSecret
+            }
+
+            WechatMoments {
+                appId wxKey
+                appSecret wxSecret
+            }
+
+            SinaWeibo {
+                appKey sinaKey
+                appSecret sinaSecret
+//                callbackUri "http://iyuba.cn"
+            }
+
+            QQ {
+                appId qqKey
+                appKey qqSecret
+                shareByAppClient true
+                enable true
+            }
+
+            QZone {
+                appId qqKey
+                appKey qqSecret
+                shareByAppClient true
+                enable true
+            }
+
+            WechatFavorite {
+                appId wxKey
+                appSecret wxSecret
+                enable false
+            }
+        }
+    }
+}
+
+/**
+ * 腾讯多渠道打包
+ */
+rebuildChannel {
+    //指定渠道文件
+    channelFile = file('../channel_iyuba.txt')
+    //已有APK文件地址（必填）[这里的名称需要根据apk文件名称来修改]
+    baseApk = file('../z_baseFile/concept2-8.2.1201-release_821201_jiagu_sign.apk')
+    //输出文件地址
+    outputDir = file('../z_output')
+    //快速模式：生成渠道包时不进行校验（速度可以提升10倍以上，默认为false）
+    fastMode = false
+    //低内存模式（仅针对V2签名，默认为false）：只把签名块、中央目录和EOCD读取到内存，不把最大头的内容块读取到内存，在手机上合成APK时，可以使用该模式
+    lowMemory = false
+}

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.suzhou.concept.bean.RankInfoItem" />
+    </data>
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/evaluation_type"
+            android:padding="@dimen/short_interval"
+            android:text="@{item.realType}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:text="@{String.valueOf(item.score)}"
+            android:gravity="center"
+            android:background="@drawable/round_border"
+            android:layout_width="@dimen/evaluation_rang"
+            android:layout_height="@dimen/evaluation_rang"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toTopOf="@+id/guideline11" />
+
+        <TextView
+            android:id="@+id/sentenceCn"
+            android:maxLines="1"
+            android:text="@{item.showSentenceCn}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline14"
+            app:layout_constraintEnd_toStartOf="@+id/guideline12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sentence"
+            android:maxLines="1"
+            android:text="@{item.showSentence}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline11"
+            app:layout_constraintEnd_toStartOf="@+id/guideline12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline14" />
+
+        <ImageView
+            android:id="@+id/play_evaluation"
+            style="@style/fine_listen_img_style"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/video"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline11" />
+
+        <TextView
+            android:id="@+id/like_evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@{String.valueOf(item.agreeCount)}"
+            app:drawableLeftCompat="@drawable/awesome"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline15"
+            app:layout_constraintTop_toTopOf="@+id/guideline11" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--新的界面样式-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <!--上边-->
+        <TextView
+            android:id="@+id/sentence"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
+            android:text="@{item.showSentence}"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/evaluation_type"
+            />
+        <TextView
+            android:id="@+id/sentenceCn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:text="@{item.showSentenceCn}"
+
+            app:layout_constraintLeft_toLeftOf="@id/sentence"
+            app:layout_constraintRight_toRightOf="@id/sentence"
+            app:layout_constraintTop_toBottomOf="@id/sentence"/>
+        <TextView
+            android:id="@+id/evaluation_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:text="@{item.realType}"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sentence"
+            app:layout_constraintBottom_toBottomOf="@id/sentenceCn"/>
+
+        <!--下边-->
+        <ImageView
+            android:id="@+id/play_evaluation"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/video"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/score_evaluation"
+            app:layout_constraintBottom_toBottomOf="@id/score_evaluation"/>
+        <ImageView
+            android:id="@+id/likeImg_evaluation"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/awesome"
+
+            app:layout_constraintLeft_toRightOf="@id/play_evaluation"
+            app:layout_constraintRight_toLeftOf="@id/score_evaluation"
+            app:layout_constraintTop_toTopOf="@id/score_evaluation"
+            app:layout_constraintBottom_toBottomOf="@id/score_evaluation"/>
+        <TextView
+            android:id="@+id/like_evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:text="@{String.valueOf(item.agreeCount)}"
+
+            app:layout_constraintLeft_toRightOf="@id/likeImg_evaluation"
+            app:layout_constraintTop_toTopOf="@id/likeImg_evaluation"
+            app:layout_constraintBottom_toBottomOf="@id/likeImg_evaluation"/>
+        <TextView
+            android:id="@+id/score_evaluation"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@{String.valueOf(item.score)}"
+            android:background="@drawable/round_border"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sentenceCn"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

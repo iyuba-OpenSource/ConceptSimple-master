@@ -1,0 +1,33 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        jcenter()
+        maven {url "https://mvn.mob.com/android"}
+
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven {url "https://mvn.mob.com/android"}
+
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        //广告-瑞狮相关引入
+        maven {
+            url "http://sdk.mentamob.com/repository/vlion/"
+            allowInsecureProtocol = true
+        }
+    }
+}
+rootProject.name = "Concept"
+include ':app'
+include ':practise'

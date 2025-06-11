@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.suzhou.concept.bean.EvaluationSentenceItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/short_interval"
+        android:layout_marginTop="@dimen/short_interval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.suzhou.concept.utils.view.SelectableTextView
+            android:id="@+id/sentence"
+            android:textColor="@{item.currentBlue ? @color/purple_700 : @color/black}"
+            android:textSize="@dimen/standard_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@{item.sentence}"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:textColor="@{item.currentBlue ? @color/purple_700 : @color/black}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@{item.sentence_cn}"
+            android:visibility="@{item.showCn?View.VISIBLE:View.GONE}" />
+    </LinearLayout>
+</layout>

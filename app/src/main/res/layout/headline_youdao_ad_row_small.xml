@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/headline_item_bg_white"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/native_main_image"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY" />
+
+    <Space
+        android:layout_width="5dp"
+        android:layout_height="0dp" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/relative_sign_container"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/headline_youdao_ad_sign_bg"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/native_ad_tv_sign"
+                android:layout_width="20dp"
+                android:layout_height="12dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/headline_native_ad_hint"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/native_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_sign_container"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="5dp"
+            android:textColor="@color/headline_item_small_title_color"
+            android:textSize="14sp"
+            tools:text="有道广告的标题" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:text="推广"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

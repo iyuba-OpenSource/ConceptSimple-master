@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.suzhou.concept.bean.ConceptItem" />
+    </data>
+
+    <!--布局显示-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:minHeight="100dp">
+
+        <RelativeLayout
+            android:id="@+id/picLayout"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <!--全四册的lesson-->
+            <TextView
+                android:id="@+id/sentence_lesson"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/lesson"
+                android:gravity="center"
+                android:text="@{item.lesson}"
+                android:textColor="#515151" />
+            <!--青少版图片-->
+            <!--<ImageView
+                android:id="@+id/youngPic"
+                loadRoundUrl="@{item.youngChild.youngPic}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo" />-->
+            <ImageView
+                android:id="@+id/youngPic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <!--标题-->
+        <!--android:text="@{item.showTitleEn()}"-->
+        <TextView
+            android:id="@+id/sentence_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="5dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:padding="5dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/picLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Excuse me!" />
+        <!--中文标题-->
+        <TextView
+            android:id="@+id/sentence_title_cn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:padding="5dp"
+            android:text="@{item.title_cn}"
+            android:textColor="#444444"
+            app:layout_constraintEnd_toStartOf="@id/picLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sentence_title"
+            tools:text="对不起" />
+        <!--底部功能-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/picLayout"
+            app:layout_constraintTop_toBottomOf="@id/sentence_title_cn">
+            <!--听力-->
+            <com.suzhou.concept.utils.view.RoundProgressBar
+                android:id="@+id/sentence_listen_progress"
+                android:layout_width="@dimen/evaluation_rang"
+                android:layout_height="@dimen/evaluation_rang"
+                android:background="@drawable/ic_home_article"
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toTopOf="@id/listen_text"
+                app:layout_constraintRight_toLeftOf="@id/sentence_eval_progress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:newCircleColor="#D8D8D8"
+                app:newCircleProgressColor="@color/theme"
+                app:newCircleWidth="2dp" />
+
+            <TextView
+                android:id="@+id/listen_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text='@{item.listenProgress+"%"}'
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/sentence_listen_progress"
+                app:layout_constraintStart_toStartOf="@id/sentence_listen_progress"
+                app:layout_constraintTop_toBottomOf="@id/sentence_listen_progress"
+                tools:text="10%" />
+
+            <!--评测-->
+            <com.suzhou.concept.utils.view.RoundProgressBar
+                android:id="@+id/sentence_eval_progress"
+                android:layout_width="@dimen/evaluation_rang"
+                android:layout_height="@dimen/evaluation_rang"
+                android:background="@drawable/ic_home_eval"
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="@id/sentence_listen_progress"
+                app:layout_constraintBottom_toTopOf="@id/eval_text"
+                app:layout_constraintLeft_toRightOf="@id/sentence_listen_progress"
+                app:layout_constraintRight_toLeftOf="@id/sentence_word_progress"
+                app:layout_constraintTop_toTopOf="@id/sentence_listen_progress"
+                app:newCircleColor="#D8D8D8"
+                app:newCircleProgressColor="@color/theme"
+                app:newCircleWidth="2dp" />
+
+            <TextView
+                android:id="@+id/eval_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/listen_text"
+                app:layout_constraintLeft_toLeftOf="@id/sentence_eval_progress"
+                app:layout_constraintRight_toRightOf="@id/sentence_eval_progress"
+                app:layout_constraintTop_toBottomOf="@id/sentence_eval_progress"
+                app:layout_constraintTop_toTopOf="@id/listen_text"
+                tools:text="0/8" />
+
+            <!--单词-->
+            <com.suzhou.concept.utils.view.RoundProgressBar
+                android:id="@+id/sentence_word_progress"
+                android:layout_width="@dimen/evaluation_rang"
+                android:layout_height="@dimen/evaluation_rang"
+                android:background="@drawable/ic_home_word"
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="@id/sentence_listen_progress"
+                app:layout_constraintLeft_toRightOf="@id/sentence_eval_progress"
+                app:layout_constraintRight_toLeftOf="@id/sentence_exercise_progress"
+                app:layout_constraintTop_toTopOf="@id/sentence_listen_progress"
+                app:newCircleColor="#D8D8D8"
+                app:newCircleProgressColor="@color/theme"
+                app:newCircleWidth="2dp" />
+
+            <!--android:text='@{item.wordRight+"/"+item.wordNum}'-->
+            <TextView
+                android:id="@+id/word_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/listen_text"
+                app:layout_constraintLeft_toLeftOf="@id/sentence_word_progress"
+                app:layout_constraintRight_toRightOf="@id/sentence_word_progress"
+                app:layout_constraintTop_toBottomOf="@id/sentence_word_progress"
+                app:layout_constraintTop_toTopOf="@id/listen_text"
+                tools:text="0/8" />
+
+            <!--练习-->
+            <com.suzhou.concept.utils.view.RoundProgressBar
+                android:id="@+id/sentence_exercise_progress"
+                android:layout_width="@dimen/evaluation_rang"
+                android:layout_height="@dimen/evaluation_rang"
+                android:background="@drawable/ic_home_test"
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="@id/sentence_listen_progress"
+                app:layout_constraintLeft_toRightOf="@id/sentence_word_progress"
+                app:layout_constraintRight_toLeftOf="@id/sentence_mooc_progress"
+                app:layout_constraintTop_toTopOf="@id/sentence_listen_progress"
+                app:newCircleColor="#D8D8D8"
+                app:newCircleProgressColor="@color/theme"
+                app:newCircleWidth="2dp" />
+
+            <TextView
+                android:id="@+id/exercise_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{item.exerciseRight+"/"+item.choice_num}'
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/listen_text"
+                app:layout_constraintLeft_toLeftOf="@id/sentence_exercise_progress"
+                app:layout_constraintRight_toRightOf="@id/sentence_exercise_progress"
+                app:layout_constraintTop_toTopOf="@id/listen_text"
+                tools:text="0/5" />
+
+            <!--微课-->
+            <com.suzhou.concept.utils.view.RoundProgressBar
+                android:id="@+id/sentence_mooc_progress"
+                android:layout_width="@dimen/evaluation_rang"
+                android:layout_height="@dimen/evaluation_rang"
+                android:background="@drawable/ic_home_micro_leature"
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="@id/sentence_listen_progress"
+                app:layout_constraintLeft_toRightOf="@id/sentence_exercise_progress"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/sentence_listen_progress"
+                app:newCircleColor="#D8D8D8"
+                app:newCircleProgressColor="@color/theme"
+                app:newCircleWidth="2dp" />
+
+            <TextView
+                android:id="@+id/mooc_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{item.evalSuccess+"/"+item.text_num}'
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/listen_text"
+                app:layout_constraintLeft_toLeftOf="@id/sentence_mooc_progress"
+                app:layout_constraintRight_toRightOf="@id/sentence_mooc_progress"
+                app:layout_constraintTop_toBottomOf="@id/sentence_mooc_progress"
+                app:layout_constraintTop_toTopOf="@id/listen_text"
+                tools:text="0%" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

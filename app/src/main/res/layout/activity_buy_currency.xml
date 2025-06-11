@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="response"
+            type="com.suzhou.concept.bean.LoginResponse" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/standard_title"/>
+        <TextView
+            android:textColor="@color/theme"
+            android:layout_margin="@dimen/standard_interval"
+            android:gravity="center"
+            android:text="@string/buy_currency_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/red"
+            android:layout_margin="@dimen/standard_interval"
+            android:gravity="center"
+            android:text='@{"爱语币:"+response.amount,default="爱语币:0"}'
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/but_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

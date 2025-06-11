@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="item"
+            type="com.suzhou.concept.bean.YoungSentenceItem" />
+        <variable
+            name="index"
+            type="String" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="@dimen/short_interval"
+        app:cardElevation="@dimen/standard_interval"
+        app:cardCornerRadius="@dimen/standard_interval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:padding="@dimen/short_interval"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/standard_interval"
+                android:gravity="center"
+                android:text="@{index}"
+                judgeTextBackGround="@{item.success}"/>
+            <TextView
+                android:id="@+id/dub_text"
+                android:layout_marginBottom="@dimen/short_interval"
+                android:layout_marginTop="@dimen/short_interval"
+                android:layout_marginStart="@dimen/standard_interval"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginBottom="@dimen/short_interval"
+                android:layout_marginTop="@dimen/short_interval"
+                android:layout_marginStart="@dimen/standard_interval"
+                android:text="@{item.sentence_cn}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:padding="@dimen/short_interval"
+                    android:layout_marginBottom="@dimen/short_interval"
+                    android:layout_marginTop="@dimen/short_interval"
+                    android:layout_marginStart="@dimen/standard_interval"
+                    android:gravity="center"
+                    android:text="@{item.sentenceDuration()}"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/dub_fraction"
+                    android:layout_margin="@dimen/short_interval"
+                    android:background="@drawable/round_border"
+                    android:gravity="center"
+                    android:text="@{item.fraction}"
+                    style="@style/fine_listen_img_style"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+</layout>

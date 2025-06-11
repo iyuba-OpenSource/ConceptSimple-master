@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="response"
+            type="com.suzhou.concept.bean.LoginResponse" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/standard_title" />
+        <!--头部数据显示-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="@dimen/standard_interval"
+            app:cardElevation="@dimen/standard_interval">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/head_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_margin="@dimen/standard_interval"
+                    android:gravity="center_vertical"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/vip_circle"
+                        android:visibility="@{response.isVip() ? View.VISIBLE : View.GONE}" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/head"
+                        style="@style/head_style"
+                        loadUrl="@{response.getUserPic()}"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignEnd="@id/head"
+                        android:layout_alignBottom="@id/head"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/vip_head"
+                        android:visibility="@{response.isVip() ? View.VISIBLE : View.GONE}" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/standard_interval"
+                        android:layout_marginTop="@dimen/standard_interval"
+                        android:layout_marginBottom="@dimen/standard_interval"
+                        android:layout_toEndOf="@id/head"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/username_show"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@{response.showName()}"
+                            android:textSize="@dimen/standard_text" />
+
+                        <TextView
+                            android:id="@+id/buy_iyu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text='@{"爱语币:"+response.amount,default="爱语币:0"}'
+                            android:textColor="@color/theme"
+                            android:textSize="@dimen/standard_text" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/sign_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        tools:ignore="RelativeOverlap">
+
+                        <ImageView
+                            android:layout_width="@dimen/evaluation_rang"
+                            android:layout_height="@dimen/evaluation_rang"
+                            android:contentDescription="@string/todo"
+                            android:src="@drawable/sign_in" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/sign_in" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/setting_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/short_interval"
+                    android:background="@color/theme"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/head_layout" />
+
+                <TextView
+                    android:id="@+id/setting_dollar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/short_interval"
+                    android:gravity="center"
+                    android:text="@{response.self.realDollar}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/setting_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/setting_horizontal" />
+
+                <TextView
+                    android:id="@+id/setting_credits"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@{response.self.realCredits}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/setting_vertical"
+                    app:layout_constraintTop_toTopOf="@id/setting_horizontal" />
+
+                <View
+                    android:id="@+id/setting_vertical"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="@color/theme"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/setting_horizontal" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+        <!--下边的列表数据-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:layout_marginTop="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--grid样式显示-->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginStart="@dimen/standard_interval"
+                    android:layout_marginEnd="@dimen/standard_interval"
+                    app:cardCornerRadius="@dimen/standard_interval"
+                    app:cardElevation="@dimen/standard_interval">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/other_operate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/horizontal_operate_item_layout" />
+                </androidx.cardview.widget.CardView>
+                <!--list样式显示-->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:layout_marginStart="@dimen/standard_interval"
+                    android:layout_marginEnd="@dimen/standard_interval"
+                    android:layout_marginTop="@dimen/standard_interval"
+                    app:cardCornerRadius="@dimen/standard_interval"
+                    app:cardElevation="@dimen/standard_interval">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/setting_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/standard_interval"
+                        android:layout_marginEnd="@dimen/standard_interval"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/setting_item_layout" />
+                </androidx.cardview.widget.CardView>
+                <!--退出登陆按钮-->
+                <Button
+                    android:id="@+id/exit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dialog_interval"
+                    android:layout_marginEnd="@dimen/dialog_interval"
+                    android:layout_marginTop="@dimen/standard_interval"
+                    android:layout_marginBottom="@dimen/standard_interval"
+                    android:background="@drawable/shape_corner_theme_10dp"
+                    android:textColor="@color/white"
+                    android:text="@string/exit" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

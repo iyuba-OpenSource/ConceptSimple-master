@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/standard_title"/>
+        <androidx.recyclerview.widget.RecyclerView
+            tools:listitem="@layout/word_level_item"
+            android:id="@+id/word_level_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <Button
+            android:id="@+id/start_break_through"
+            android:text="@string/start_break_through"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/standard_interval"
+            android:background="@drawable/shape_corner_theme_10dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

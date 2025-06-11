@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="loginItem"
+            type="com.suzhou.concept.bean.LoginBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/standard_title" />
+
+        <!--操作界面-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <!--登录功能-->
+            <LinearLayout
+                android:id="@+id/loginLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/big_interval"
+                    android:contentDescription="@string/todo" />
+                <LinearLayout
+                    android:id="@+id/username_text_input"
+                    style="@style/Widget.Magic.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:orientation="vertical"
+                    app:startIconDrawable="@drawable/user">
+                    <EditText
+                        style="@style/login_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:hint="@string/hint_username"
+                        android:text="@={loginItem.username}"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/password_text_input"
+                    style="@style/Widget.Magic.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:errorEnabled="true"
+                    app:passwordToggleEnabled="true"
+                    android:orientation="vertical"
+                    app:startIconDrawable="@drawable/password">
+                    <!--        6-12-->
+                    <EditText
+                        android:id="@+id/password"
+                        style="@style/login_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:hint="@string/hint_password"
+                        android:text="@={loginItem.password}"/>
+                </LinearLayout>
+                <RelativeLayout
+                    style="@style/login_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/read_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:id="@+id/read_agree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/read_check"
+                        android:text="@string/read_agree" />
+                </RelativeLayout>
+                <LinearLayout
+                    style="@style/login_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:backgroundTint="@color/gray"
+                        android:id="@+id/register"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/theme"
+                        android:textColor="@color/white"
+                        android:text="@string/register" />
+
+                    <Button
+                        android:id="@+id/login"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/big_interval"
+                        android:layout_weight="1"
+                        android:background="@color/theme"
+                        android:textColor="@color/white"
+                        android:text="@string/login" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/forgot_password"
+                    style="@style/login_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/purple_700"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--加载弹窗-->
+            <LinearLayout
+                android:id="@+id/loadingLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:gravity="center"
+                android:clickable="false"
+                android:visibility="gone"
+                >
+                <ProgressBar
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"/>
+                <TextView
+                    android:id="@+id/showMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正在加载登录信息～"
+                    android:layout_marginTop="15dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

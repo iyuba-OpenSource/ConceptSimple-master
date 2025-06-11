@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/indexView"
+                android:paddingStart="@dimen/short_interval"
+                android:textColor="@color/white"
+                android:background="@drawable/triangle"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15sp"
+                android:id="@+id/sentence_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/sentence_cn"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/bottomLayout"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.suzhou.concept.utils.view.RoundProgressBar
+                    android:layout_width="@dimen/evaluation_rang"
+                    android:layout_height="@dimen/evaluation_rang"
+                    android:id="@+id/control_progress"
+                    app:newCircleColor="#fff"
+                    app:newCircleProgressColor="@color/round_progress"
+                    app:newCircleWidth="2dp"
+                    android:background="@drawable/play_evaluation_old"/>
+                <RelativeLayout
+                    android:id="@+id/evalLayout"
+                    android:layout_margin="@dimen/short_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/mike"
+                        android:layout_width="@dimen/evaluation_rang"
+                        android:layout_height="@dimen/evaluation_rang"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/standard_interval"
+                        android:layout_marginEnd="@dimen/standard_interval"
+                        android:background="@drawable/mike_grey"
+                        android:contentDescription="@string/todo" />
+
+                    <com.suzhou.concept.utils.view.RoundProgressBar
+                        android:id="@+id/control_self"
+                        style="@style/fine_listen_img_style"
+                        android:layout_width="@dimen/evaluation_rang"
+                        android:layout_marginTop="@dimen/short_interval"
+                        android:layout_marginEnd="@dimen/short_interval"
+                        android:layout_marginBottom="@dimen/short_interval"
+                        android:layout_toEndOf="@id/mike"
+                        android:background="@drawable/play_evaluation_old"
+                        android:contentDescription="@string/todo"
+                        android:gravity="center"
+                        app:newCircleColor="#fff"
+                        app:newCircleProgressColor="@color/round_progress"
+                        app:newCircleWidth="2dp" />
+
+                    <TextView
+                        android:id="@+id/score"
+                        android:layout_width="@dimen/evaluation_rang"
+                        android:layout_height="@dimen/evaluation_rang"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/standard_interval"
+                        android:layout_marginEnd="@dimen/standard_interval"
+                        android:layout_toEndOf="@id/control_self"
+                        android:background="@drawable/round_border"
+                        android:gravity="center" />
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/release_item"
+                    android:src="@drawable/release"
+                    android:layout_width="@dimen/evaluation_rang"
+                    android:layout_height="@dimen/evaluation_rang"
+                    android:contentDescription="@string/todo" />
+                <TextView
+                    android:id="@+id/correct_sound"
+                    android:textColor="@color/theme"
+                    android:gravity="center"
+                    android:text="@string/correct_sound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

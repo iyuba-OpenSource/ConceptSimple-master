@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--广告界面-->
+        <FrameLayout
+            android:id="@+id/fragment_ad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!--主界面-->
+        <LinearLayout
+            android:id="@+id/showMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:id="@+id/navigation_pager"/>
+            <!--<com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:id="@+id/navigation_bar"
+                android:background="@color/white"
+                app:labelVisibilityMode="labeled"
+                />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

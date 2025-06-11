@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">新概念英语</string>
+
+    <!--这里不能动，作为com.suzhou.concept包名的文件author数据-->
+    <string name="authorities">com.suzhou.concept.dialog</string>
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/half_black">
+    <TextView
+        android:layout_margin="@dimen/standard_interval"
+        android:textColor="@color/white"
+        android:id="@+id/download_pdf"
+        android:gravity="center"
+        android:text="下载PDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drawableLeftCompat="@drawable/pdf" />
+    <TextView
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <TextView
+        android:id="@+id/share_content"
+        android:layout_margin="@dimen/standard_interval"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="分享文章"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drawableLeftCompat="@drawable/share" />
+    <TextView
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <TextView
+        android:id="@+id/change_language"
+        android:layout_margin="@dimen/standard_interval"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="切换中英文"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drawableLeftCompat="@drawable/language_change" />
+    <TextView
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <TextView
+        android:id="@+id/refresh_exercise"
+        android:layout_margin="@dimen/standard_interval"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="更新习题"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drawableLeftCompat="@drawable/exercise_refresh" />
+</LinearLayout>

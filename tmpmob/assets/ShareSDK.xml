@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DevInfor>
+<Wechat AppId="wx33db84cd95e173c8" AppSecret="bf105d20036131adcf715c304331c6a8" />
+<WechatMoments AppId="wx33db84cd95e173c8" AppSecret="bf105d20036131adcf715c304331c6a8" />
+<SinaWeibo AppKey="817528096" AppSecret="9a0e280cf407611b0b739a3561291bf1" RedirectUrl="null" />
+<QQ AppId="1109948185" AppKey="VMdjOTdFOOkdAPMP" ShareByAppClient="true" Enable="true" />
+<QZone AppId="1109948185" AppKey="VMdjOTdFOOkdAPMP" ShareByAppClient="true" Enable="true" />
+<WechatFavorite AppId="wx33db84cd95e173c8" AppSecret="bf105d20036131adcf715c304331c6a8" Enable="false" />
+</DevInfor>

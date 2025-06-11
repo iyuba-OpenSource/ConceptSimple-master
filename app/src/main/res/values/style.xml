@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--选中的样式，可以设置选择的字体颜色，这里只是为了改变选择时的字体大小-->
+    <style name="bottom_tab_title_active">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <!--没有选中的样式，导航默认的字体大小就是12sp-->
+    <style name="bottom_tab_title_inactive">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Widget.Magic.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="hintTextAppearance">@style/TextAppearance.Magic.TextInputLayout.HintText</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+    <style name="TextAppearance.Magic.TextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="login_style">
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
+    <style name="dialog_custom" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>    <!--是否浮在界面上-->
+        <item name="android:windowIsTranslucent">true</item> <!--是否半透明-->
+        <item name="android:windowNoTitle">false</item>       <!--是否有标题-->
+        <item name="android:windowBackground">@android:color/transparent</item> <!--窗口背景色透明-->
+        <item name="android:backgroundDimEnabled">true</item> <!--背景是否模糊显示-->
+    </style>
+    <style name="dialog_style" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+    <style name="VerticalMargin">
+        <item name="android:layout_marginTop">@dimen/short_interval</item>
+        <item name="android:layout_marginBottom">@dimen/short_interval</item>
+    </style>
+    <style name="StandardMargin">
+        <item name="android:layout_margin">@dimen/standard_interval</item>
+    </style>
+    <dimen name="standard_interval">10dp</dimen>
+    <dimen name="big_interval">50dp</dimen>
+    <dimen name="standard_text">16sp</dimen>
+    <dimen name="layout_constraint_height">80dp</dimen>
+    <dimen name="short_interval">5dp</dimen>
+    <dimen name="evaluation_rang">32dp</dimen>
+    <dimen name="four_eight_dp">48dp</dimen>
+    <style name="pay_text_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/standard_text</item>
+    </style>
+    <dimen name="dialog_interval">15dp</dimen>
+    <style name="fine_listen_img_style">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+    <style name="standard_title_img">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+    <style name="head_style">
+        <item name="android:layout_width">76dp</item>
+        <item name="android:layout_height">76dp</item>
+    </style>
+
+    <style name="ProgressPrimary" parent="Widget.AppCompat.ProgressBar">
+
+    </style>
+
+    <style name="ToolbarTheme"/>
+    <style name="ToolbarTitle"/>
+    <style name="ToolbarPopupTheme"/>
+
+
+    <style name="FiveRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/five_rating_bar</item>
+        <item name="android:minHeight">32dp</item>
+        <item name="android:maxHeight">32dp</item>
+    </style>
+    <dimen name="img_size">80dp</dimen>
+    <style name="QuestionStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+</resources>

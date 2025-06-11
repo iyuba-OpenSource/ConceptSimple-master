@@ -1,0 +1,1308 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 15,
+    "identityHash": "27b5ed38ddd14e6a8464625bbafa51e5",
+    "entities": [
+      {
+        "tableName": "LocalCollect",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`word` TEXT NOT NULL, `isCollect` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "word",
+            "columnName": "word",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCollect",
+            "columnName": "isCollect",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "WordItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`audio` TEXT NOT NULL, `def` TEXT NOT NULL, `end_timing` TEXT NOT NULL, `examples` TEXT NOT NULL, `position` INTEGER NOT NULL, `pron` TEXT NOT NULL, `sentence` TEXT NOT NULL, `sentence_audio` TEXT NOT NULL, `sentence_cn` TEXT NOT NULL, `timing` TEXT NOT NULL, `voa_id` INTEGER NOT NULL, `word` TEXT NOT NULL, `correct` INTEGER NOT NULL, `userId` INTEGER NOT NULL, `bookId` INTEGER NOT NULL, `unitId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "audio",
+            "columnName": "audio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "def",
+            "columnName": "def",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "end_timing",
+            "columnName": "end_timing",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "examples",
+            "columnName": "examples",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pron",
+            "columnName": "pron",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sentence",
+            "columnName": "sentence",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sentence_audio",
+            "columnName": "sentence_audio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sentence_cn",
+            "columnName": "sentence_cn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timing",
+            "columnName": "timing",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "voa_id",
+            "columnName": "voa_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "word",
+            "columnName": "word",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "correct",
+            "columnName": "correct",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookId",
+            "columnName": "bookId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unitId",
+            "columnName": "unitId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "EvaluationSentenceDataItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`content` TEXT NOT NULL, `index` INTEGER NOT NULL, `score` REAL NOT NULL, `delete` TEXT NOT NULL, `insert` TEXT NOT NULL, `pron` TEXT NOT NULL, `pron2` TEXT NOT NULL, `substitute_orgi` TEXT NOT NULL, `substitute_user` TEXT NOT NULL, `user_pron` TEXT NOT NULL, `user_pron2` TEXT NOT NULL, `userId` INTEGER NOT NULL, `voaId` INTEGER NOT NULL, `onlyKay` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "index",
+            "columnName": "index",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "delete",
+            "columnName": "delete",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "insert",
+            "columnName": "insert",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pron",
+            "columnName": "pron",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pron2",
+            "columnName": "pron2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "substitute_orgi",
+            "columnName": "substitute_orgi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "substitute_user",
+            "columnName": "substitute_user",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user_pron",
+            "columnName": "user_pron",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user_pron2",
+            "columnName": "user_pron2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "voaId",
+            "columnName": "voaId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "onlyKay",
+            "columnName": "onlyKay",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "EvaluationSentenceItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`voaid` TEXT NOT NULL, `EndTiming` REAL NOT NULL, `Paraid` TEXT NOT NULL, `IdIndex` INTEGER NOT NULL, `Timing` REAL NOT NULL, `Sentence_cn` TEXT NOT NULL DEFAULT '', `Sentence` TEXT NOT NULL, `showCn` INTEGER NOT NULL, `currentBlue` INTEGER NOT NULL, `showOperate` INTEGER NOT NULL, `fraction` TEXT NOT NULL, `selfVideoUrl` TEXT NOT NULL, `onlyKay` TEXT NOT NULL, `success` INTEGER NOT NULL, `userId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "voaid",
+            "columnName": "voaid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "EndTiming",
+            "columnName": "EndTiming",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Paraid",
+            "columnName": "Paraid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "IdIndex",
+            "columnName": "IdIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Timing",
+            "columnName": "Timing",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Sentence_cn",
+            "columnName": "Sentence_cn",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "Sentence",
+            "columnName": "Sentence",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "showCn",
+            "columnName": "showCn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentBlue",
+            "columnName": "currentBlue",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "showOperate",
+            "columnName": "showOperate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fraction",
+            "columnName": "fraction",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "selfVideoUrl",
+            "columnName": "selfVideoUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "onlyKay",
+            "columnName": "onlyKay",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "success",
+            "columnName": "success",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "LikeEvaluation",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `itemId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "itemId",
+            "columnName": "itemId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ConceptItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`text_num` TEXT NOT NULL, `totalTime` INTEGER NOT NULL, `titleid` TEXT NOT NULL, `end_time` TEXT NOT NULL, `packageid` INTEGER NOT NULL, `title` TEXT NOT NULL, `ownerid` TEXT NOT NULL, `price` TEXT NOT NULL, `voa_id` TEXT NOT NULL, `percentage` TEXT NOT NULL, `title_cn` TEXT NOT NULL, `choice_num` TEXT NOT NULL, `name` TEXT NOT NULL, `categoryid` INTEGER NOT NULL, `desc` TEXT NOT NULL, `lesson` TEXT NOT NULL, `bookId` INTEGER NOT NULL, `language` TEXT NOT NULL, `index` INTEGER NOT NULL DEFAULT 1, `listenProgress` INTEGER NOT NULL DEFAULT 1, `evalSuccess` INTEGER NOT NULL DEFAULT 1, `exerciseRight` INTEGER NOT NULL DEFAULT 0, `wordRight` INTEGER NOT NULL DEFAULT 0, `wordNum` INTEGER NOT NULL DEFAULT 0, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "text_num",
+            "columnName": "text_num",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalTime",
+            "columnName": "totalTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titleid",
+            "columnName": "titleid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "end_time",
+            "columnName": "end_time",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageid",
+            "columnName": "packageid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerid",
+            "columnName": "ownerid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "voa_id",
+            "columnName": "voa_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentage",
+            "columnName": "percentage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title_cn",
+            "columnName": "title_cn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "choice_num",
+            "columnName": "choice_num",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryid",
+            "columnName": "categoryid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desc",
+            "columnName": "desc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lesson",
+            "columnName": "lesson",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookId",
+            "columnName": "bookId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "language",
+            "columnName": "language",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "index",
+            "columnName": "index",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "listenProgress",
+            "columnName": "listenProgress",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "evalSuccess",
+            "columnName": "evalSuccess",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "exerciseRight",
+            "columnName": "exerciseRight",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "wordRight",
+            "columnName": "wordRight",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "wordNum",
+            "columnName": "wordNum",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "YoungSentenceItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`EndTiming` TEXT NOT NULL, `End_x` TEXT NOT NULL, `End_y` TEXT NOT NULL, `IdIndex` TEXT NOT NULL, `ImgPath` TEXT NOT NULL, `ImgWords` TEXT NOT NULL, `ParaId` TEXT NOT NULL, `Sentence` TEXT NOT NULL, `Start_x` TEXT NOT NULL, `Start_y` TEXT NOT NULL, `Timing` TEXT NOT NULL, `sentence_cn` TEXT NOT NULL, `voaId` TEXT NOT NULL DEFAULT '1', `showCn` INTEGER NOT NULL, `currentBlue` INTEGER NOT NULL, `showOperate` INTEGER NOT NULL, `fraction` TEXT NOT NULL, `selfVideoUrl` TEXT NOT NULL, `onlyKay` TEXT NOT NULL, `success` INTEGER NOT NULL, `userId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "EndTiming",
+            "columnName": "EndTiming",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "End_x",
+            "columnName": "End_x",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "End_y",
+            "columnName": "End_y",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "IdIndex",
+            "columnName": "IdIndex",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ImgPath",
+            "columnName": "ImgPath",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ImgWords",
+            "columnName": "ImgWords",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ParaId",
+            "columnName": "ParaId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Sentence",
+            "columnName": "Sentence",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Start_x",
+            "columnName": "Start_x",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Start_y",
+            "columnName": "Start_y",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Timing",
+            "columnName": "Timing",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sentence_cn",
+            "columnName": "sentence_cn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "voaId",
+            "columnName": "voaId",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'1'"
+          },
+          {
+            "fieldPath": "showCn",
+            "columnName": "showCn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentBlue",
+            "columnName": "currentBlue",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "showOperate",
+            "columnName": "showOperate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fraction",
+            "columnName": "fraction",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "selfVideoUrl",
+            "columnName": "selfVideoUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "onlyKay",
+            "columnName": "onlyKay",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "success",
+            "columnName": "success",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "YoungItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Category` TEXT NOT NULL, `CreateTime` TEXT NOT NULL, `DescCn` TEXT NOT NULL, `HotFlg` TEXT NOT NULL, `Id` TEXT NOT NULL, `KeyWords` TEXT NOT NULL, `SeriesCount` TEXT NOT NULL, `SeriesName` TEXT NOT NULL, `UpdateTime` TEXT NOT NULL, `haveMicro` TEXT NOT NULL, `isVideo` TEXT NOT NULL, `pic` TEXT NOT NULL, `version` TEXT NOT NULL, `tableId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "Category",
+            "columnName": "Category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CreateTime",
+            "columnName": "CreateTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "DescCn",
+            "columnName": "DescCn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "HotFlg",
+            "columnName": "HotFlg",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Id",
+            "columnName": "Id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "KeyWords",
+            "columnName": "KeyWords",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "SeriesCount",
+            "columnName": "SeriesCount",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "SeriesName",
+            "columnName": "SeriesName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "UpdateTime",
+            "columnName": "UpdateTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "haveMicro",
+            "columnName": "haveMicro",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isVideo",
+            "columnName": "isVideo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pic",
+            "columnName": "pic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "version",
+            "columnName": "version",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tableId",
+            "columnName": "tableId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "tableId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "YoungWordItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Sentence` TEXT NOT NULL, `Sentence_audio` TEXT NOT NULL, `Sentence_cn` TEXT NOT NULL, `audio` TEXT NOT NULL DEFAULT '1', `book_id` TEXT NOT NULL, `def` TEXT NOT NULL, `examples` TEXT NOT NULL, `idindex` TEXT NOT NULL, `pic_url` TEXT NOT NULL, `position` TEXT NOT NULL, `pron` TEXT NOT NULL, `unit_id` TEXT NOT NULL, `updateTime` TEXT NOT NULL, `version` TEXT NOT NULL, `videoUrl` TEXT NOT NULL, `voa_id` TEXT NOT NULL, `word` TEXT NOT NULL, `correct` INTEGER NOT NULL, `userId` INTEGER NOT NULL, `bookId` TEXT NOT NULL DEFAULT '', `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "Sentence",
+            "columnName": "Sentence",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Sentence_audio",
+            "columnName": "Sentence_audio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Sentence_cn",
+            "columnName": "Sentence_cn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "audio",
+            "columnName": "audio",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'1'"
+          },
+          {
+            "fieldPath": "book_id",
+            "columnName": "book_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "def",
+            "columnName": "def",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "examples",
+            "columnName": "examples",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idindex",
+            "columnName": "idindex",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pic_url",
+            "columnName": "pic_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pron",
+            "columnName": "pron",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unit_id",
+            "columnName": "unit_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateTime",
+            "columnName": "updateTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "version",
+            "columnName": "version",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "videoUrl",
+            "columnName": "videoUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "voa_id",
+            "columnName": "voa_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "word",
+            "columnName": "word",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "correct",
+            "columnName": "correct",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookId",
+            "columnName": "bookId",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "BookItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Category` TEXT NOT NULL, `CategoryName` TEXT NOT NULL, `CreatTime` TEXT NOT NULL, `DescCn` TEXT NOT NULL, `Flag` TEXT NOT NULL, `HotFlg` TEXT NOT NULL, `Id` TEXT NOT NULL, `IntroDesc` TEXT NOT NULL, `Keyword` TEXT NOT NULL, `Pagetitle` TEXT NOT NULL, `Pic` TEXT NOT NULL, `PublishTime` TEXT NOT NULL, `ReadCount` TEXT NOT NULL, `Sound` TEXT NOT NULL, `Texts` TEXT NOT NULL, `Title` TEXT NOT NULL, `Title_cn` TEXT NOT NULL, `Url` TEXT NOT NULL, `categoryid` TEXT NOT NULL, `classid` TEXT NOT NULL, `clickRead` TEXT NOT NULL, `desc` TEXT NOT NULL, `havePractice` TEXT NOT NULL, `listenPercentage` TEXT NOT NULL, `name` TEXT NOT NULL, `outlineid` TEXT NOT NULL, `ownerid` TEXT NOT NULL, `packageid` TEXT NOT NULL, `percentage` TEXT NOT NULL, `price` TEXT NOT NULL, `series` TEXT NOT NULL, `totalTime` TEXT NOT NULL, `video` TEXT NOT NULL, `wordNum` INTEGER NOT NULL, `index` INTEGER NOT NULL, `isRelease` INTEGER NOT NULL, `isCollect` INTEGER NOT NULL, `isDownload` INTEGER NOT NULL, `listenProgress` INTEGER NOT NULL, `evalSuccess` INTEGER NOT NULL, `wordRight` INTEGER NOT NULL, `userId` INTEGER NOT NULL, `tableId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "Category",
+            "columnName": "Category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CategoryName",
+            "columnName": "CategoryName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CreatTime",
+            "columnName": "CreatTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "DescCn",
+            "columnName": "DescCn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Flag",
+            "columnName": "Flag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "HotFlg",
+            "columnName": "HotFlg",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Id",
+            "columnName": "Id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "IntroDesc",
+            "columnName": "IntroDesc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Keyword",
+            "columnName": "Keyword",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Pagetitle",
+            "columnName": "Pagetitle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Pic",
+            "columnName": "Pic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "PublishTime",
+            "columnName": "PublishTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ReadCount",
+            "columnName": "ReadCount",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Sound",
+            "columnName": "Sound",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Texts",
+            "columnName": "Texts",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Title",
+            "columnName": "Title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Title_cn",
+            "columnName": "Title_cn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Url",
+            "columnName": "Url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryid",
+            "columnName": "categoryid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "classid",
+            "columnName": "classid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clickRead",
+            "columnName": "clickRead",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desc",
+            "columnName": "desc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "havePractice",
+            "columnName": "havePractice",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "listenPercentage",
+            "columnName": "listenPercentage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "outlineid",
+            "columnName": "outlineid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerid",
+            "columnName": "ownerid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageid",
+            "columnName": "packageid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentage",
+            "columnName": "percentage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "series",
+            "columnName": "series",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalTime",
+            "columnName": "totalTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "video",
+            "columnName": "video",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wordNum",
+            "columnName": "wordNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "index",
+            "columnName": "index",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isRelease",
+            "columnName": "isRelease",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCollect",
+            "columnName": "isCollect",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDownload",
+            "columnName": "isDownload",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "listenProgress",
+            "columnName": "listenProgress",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "evalSuccess",
+            "columnName": "evalSuccess",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wordRight",
+            "columnName": "wordRight",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tableId",
+            "columnName": "tableId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "tableId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "LikeYoung",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `otherId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "otherId",
+            "columnName": "otherId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ReDoBean",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`testNumber` TEXT NOT NULL, `reDidMultiple` INTEGER NOT NULL, `reDidStructure` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "testNumber",
+            "columnName": "testNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reDidMultiple",
+            "columnName": "reDidMultiple",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reDidStructure",
+            "columnName": "reDidStructure",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '27b5ed38ddd14e6a8464625bbafa51e5')"
+    ]
+  }
+}

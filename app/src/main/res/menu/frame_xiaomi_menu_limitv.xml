@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:icon="@drawable/home"
+        android:id="@+id/home"
+        android:title="@string/home"/>
+    <item
+        android:icon="@drawable/break_through"
+        android:id="@+id/break_through"
+        android:title="@string/break_through"/>
+    <item
+        android:icon="@drawable/micro_lesson"
+        android:id="@+id/micro_lesson"
+        android:title="@string/micro_lesson"/>
+    <item
+        android:icon="@drawable/setting"
+        android:id="@+id/setting"
+        android:title="@string/mine_rank"/>
+
+</menu>

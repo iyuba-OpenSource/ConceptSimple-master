@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--数据操作-->
+    <data>
+
+    </data>
+
+    <!--显示界面-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/standard_title"/>
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/speak_play"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:controller_layout_id="@layout/exoplayer_control_view"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:text="@string/difficulty"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RatingBar
+                style="@style/FiveRatingBar"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:layout_marginStart="10dp"
+                android:id="@+id/speak_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                tools:src="@drawable/star"
+                android:layout_marginEnd="@dimen/short_interval"
+                android:id="@+id/speak_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/todo" />
+            <ImageView
+                android:src="@drawable/more"
+                android:id="@+id/speak_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/todo" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/start_speaking"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/start_go_speaking"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/shape_corner_theme_10dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/speaking_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_margin="@dimen/standard_interval"
+            android:id="@+id/speak_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+</layout>
